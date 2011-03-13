@@ -1,0 +1,25 @@
+<h1>Listing process_flows</h1>
+
+<table>
+  <tr>
+    <th>Name</th>
+    <th>Description</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @process_flows.each do |process_flow| %>
+  <tr>
+    <td><%= process_flow.name %></td>
+    <td><%= process_flow.description %></td>
+    <td><%= link_to 'Show', process_flow %></td>
+    <td><%= link_to 'Edit', edit_process_flow_path(process_flow) %></td>
+    <td><%= link_to 'Destroy', process_flow, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Process flow', new_process_flow_path %>
