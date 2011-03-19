@@ -49,6 +49,13 @@ describe ProcessFlowsController do
         post :create, :process_flow => {'these' => 'params'}
         assigns(:process_flow).should be(mock_process_flow)
       end
+      
+      it "should create a new process flow" do
+        attr_process = {:name => "Test name", :description => "Test description"}
+        lambda do
+          post :create, :process_flow => attr_process
+        end.should change(ProcessFlow, :count).by(1)
+      end
 
       it "redirects to the created process_flow" do
         ProcessFlow.stub(:new) { mock_process_flow(:save => true) }
