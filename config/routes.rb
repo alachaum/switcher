@@ -1,4 +1,6 @@
 Switcher::Application.routes.draw do
+  resources :process_units
+
   resources :process_flows
 
   # The priority is based upon order of creation:

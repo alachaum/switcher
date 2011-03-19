@@ -1,0 +1,2 @@
+class ProcessUnitsController < ApplicationController
+end

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110316114610) do
+ActiveRecord::Schema.define(:version => 20110319055501) do
 
   create_table "process_flows", :force => true do |t|
     t.string   "name"
@@ -18,5 +18,15 @@ ActiveRecord::Schema.define(:version => 20110316114610) do
     t.datetime "updated_at"
     t.text     "description"
   end
+
+  create_table "process_units", :force => true do |t|
+    t.string   "name"
+    t.text     "description"
+    t.integer  "process_flow_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "process_units", ["process_flow_id"], :name => "index_process_units_on_process_flow_id"
 
 end
