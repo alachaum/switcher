@@ -4,8 +4,10 @@
   <tr>
     <th>Name</th>
     <th>Description</th>
-    <th>Type</th>
+    <th>Role</th>
     <th>Process unit</th>
+    <th>Function name</th>
+    <th>Function parameters</th>
     <th></th>
     <th></th>
     <th></th>
@@ -15,8 +17,10 @@
   <tr>
     <td><%= process_element.name %></td>
     <td><%= process_element.description %></td>
-    <td><%= process_element.type %></td>
+    <td><%= process_element.role %></td>
     <td><%= process_element.process_unit_id %></td>
+    <td><%= process_element.function_name %></td>
+    <td><%= process_element.function_parameters %></td>
     <td><%= link_to 'Show', process_element %></td>
     <td><%= link_to 'Edit', edit_process_element_path(process_element) %></td>
     <td><%= link_to 'Destroy', process_element, :confirm => 'Are you sure?', :method => :delete %></td>

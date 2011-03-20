@@ -6,6 +6,7 @@ namespace :db do
     Rake::Task['db:reset'].invoke
     make_process_flows
     make_process_units
+    make_process_elements
   end
 end
 
@@ -33,6 +34,19 @@ def make_process_units
         p_flow.process_units.create!(:name => name,
                                      :description => description)
       end 
+    end
+  end
+end
+
+def make_process_elements
+  message = "Add sample process elements"
+  monitor(message) do
+    ProcessUnit.all.each do |p_unit|
+      ["condition","action","monitor","validation"].each do |role|
+        p_unit.process_elements.create!(:name => role.capitalize,
+                                        :description => "#{role.capitalize} for #{p_unit.name}",
+                                        :role => role)
+      end
     end
   end
 end

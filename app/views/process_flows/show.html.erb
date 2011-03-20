@@ -3,13 +3,12 @@
 <p>
   <b>Name:</b>
   <%= @process_flow.name %>
-</p>
-
-<p>
+	<br/>
   <b>Description:</b>
   <%= @process_flow.description %>
 </p>
 
+<%= render 'process_units/list', :p_units => @process_flow.process_units %>
 
 <%= link_to 'Edit', edit_process_flow_path(@process_flow) %> |
 <%= link_to 'Back', process_flows_path %>

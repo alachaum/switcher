@@ -1,24 +1,6 @@
 <h1>Listing process_units</h1>
 
-<table>
-  <tr>
-    <th>Name</th>
-    <th>Description</th>
-    <th></th>
-    <th></th>
-    <th></th>
-  </tr>
-
-<% @process_units.each do |process_unit| %>
-  <tr>
-    <td><%= process_unit.name %></td>
-    <td><%= process_unit.description %></td>
-    <td><%= link_to 'Show', process_unit %></td>
-    <td><%= link_to 'Edit', edit_process_unit_path(process_unit) %></td>
-    <td><%= link_to 'Destroy', process_unit, :confirm => 'Are you sure?', :method => :delete %></td>
-  </tr>
-<% end %>
-</table>
+<%= render 'list', :p_units => @process_units %>
 
 <br />
 

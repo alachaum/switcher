@@ -20,12 +20,20 @@
     <%= f.text_area :description %>
   </div>
   <div class="field">
-    <%= f.label :type %><br />
-    <%= f.text_field :type %>
+    <%= f.label :role %><br />
+    <%= f.text_field :role %>
   </div>
   <div class="field">
     <%= f.label :process_unit_id %><br />
     <%= f.text_field :process_unit_id %>
+  </div>
+  <div class="field">
+    <%= f.label :function_name %><br />
+    <%= f.text_field :function_name %>
+  </div>
+  <div class="field">
+    <%= f.label :function_parameters %><br />
+    <%= f.text_field :function_parameters %>
   </div>
   <div class="actions">
     <%= f.submit %>

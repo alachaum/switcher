@@ -6,14 +6,18 @@ describe "process_elements/index.html.erb" do
       stub_model(ProcessElement,
         :name => "Name",
         :description => "MyText",
-        :type => "Type",
-        :process_unit_id => 1
+        :role => "Role",
+        :process_unit_id => 1,
+        :function_name => "Function Name",
+        :function_parameters => "Function Parameters"
       ),
       stub_model(ProcessElement,
         :name => "Name",
         :description => "MyText",
-        :type => "Type",
-        :process_unit_id => 1
+        :role => "Role",
+        :process_unit_id => 1,
+        :function_name => "Function Name",
+        :function_parameters => "Function Parameters"
       )
     ])
   end
@@ -25,8 +29,12 @@ describe "process_elements/index.html.erb" do
     # Run the generator again with the --webrat flag if you want to use webrat matchers
     assert_select "tr>td", :text => "MyText".to_s, :count => 2
     # Run the generator again with the --webrat flag if you want to use webrat matchers
-    assert_select "tr>td", :text => "Type".to_s, :count => 2
+    assert_select "tr>td", :text => "Role".to_s, :count => 2
     # Run the generator again with the --webrat flag if you want to use webrat matchers
     assert_select "tr>td", :text => 1.to_s, :count => 2
+    # Run the generator again with the --webrat flag if you want to use webrat matchers
+    assert_select "tr>td", :text => "Function Name".to_s, :count => 2
+    # Run the generator again with the --webrat flag if you want to use webrat matchers
+    assert_select "tr>td", :text => "Function Parameters".to_s, :count => 2
   end
 end

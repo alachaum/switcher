@@ -5,8 +5,10 @@ describe "process_elements/show.html.erb" do
     @process_element = assign(:process_element, stub_model(ProcessElement,
       :name => "Name",
       :description => "MyText",
-      :type => "Type",
-      :process_unit_id => 1
+      :role => "Role",
+      :process_unit_id => 1,
+      :function_name => "Function Name",
+      :function_parameters => "Function Parameters"
     ))
   end
 
@@ -17,8 +19,12 @@ describe "process_elements/show.html.erb" do
     # Run the generator again with the --webrat flag if you want to use webrat matchers
     rendered.should match(/MyText/)
     # Run the generator again with the --webrat flag if you want to use webrat matchers
-    rendered.should match(/Type/)
+    rendered.should match(/Role/)
     # Run the generator again with the --webrat flag if you want to use webrat matchers
     rendered.should match(/1/)
+    # Run the generator again with the --webrat flag if you want to use webrat matchers
+    rendered.should match(/Function Name/)
+    # Run the generator again with the --webrat flag if you want to use webrat matchers
+    rendered.should match(/Function Parameters/)
   end
 end
