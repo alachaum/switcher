@@ -1,0 +1,15 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Parent:</b>
+  <%= @unit_relationship.parent_id %>
+</p>
+
+<p>
+  <b>Child:</b>
+  <%= @unit_relationship.child_id %>
+</p>
+
+
+<%= link_to 'Edit', edit_unit_relationship_path(@unit_relationship) %> |
+<%= link_to 'Back', unit_relationships_path %>
