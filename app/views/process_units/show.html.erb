@@ -1,5 +1,15 @@
 <p id="notice"><%= notice %></p>
 
+<p>
+  <b>Name:</b>
+  <%= @process_unit.name %>
+</p>
+
+<p>
+  <b>Description:</b>
+  <%= @process_unit.description %>
+</p>
+
 
 <%= link_to 'Edit', edit_process_unit_path(@process_unit) %> |
 <%= link_to 'Back', process_units_path %>
