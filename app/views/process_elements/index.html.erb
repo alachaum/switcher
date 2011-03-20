@@ -1,0 +1,29 @@
+<h1>Listing process_elements</h1>
+
+<table>
+  <tr>
+    <th>Name</th>
+    <th>Description</th>
+    <th>Type</th>
+    <th>Process unit</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @process_elements.each do |process_element| %>
+  <tr>
+    <td><%= process_element.name %></td>
+    <td><%= process_element.description %></td>
+    <td><%= process_element.type %></td>
+    <td><%= process_element.process_unit_id %></td>
+    <td><%= link_to 'Show', process_element %></td>
+    <td><%= link_to 'Edit', edit_process_element_path(process_element) %></td>
+    <td><%= link_to 'Destroy', process_element, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Process element', new_process_element_path %>

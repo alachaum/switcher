@@ -1,6 +1,8 @@
 Switcher::Application.routes.draw do
   
 
+  resources :process_elements
+
   resources :process_flows
   resources :process_units
 

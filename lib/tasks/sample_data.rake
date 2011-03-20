@@ -9,6 +9,7 @@ namespace :db do
   end
 end
 
+#Add sample process flows to the database
 def make_process_flows
   message = "Add sample process flows"
   monitor(message) do
@@ -21,6 +22,7 @@ def make_process_flows
   end
 end
 
+#Add sample process units to the database
 def make_process_units
   message = "Add sample process units"
   monitor(message) do
@@ -35,6 +37,8 @@ def make_process_units
   end
 end
 
+# Display a message and the execution time 
+# on the console for a function
 def monitor(message)
   puts "-- #{message}"
   start = Time.now

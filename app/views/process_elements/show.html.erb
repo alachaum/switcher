@@ -1,0 +1,25 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Name:</b>
+  <%= @process_element.name %>
+</p>
+
+<p>
+  <b>Description:</b>
+  <%= @process_element.description %>
+</p>
+
+<p>
+  <b>Type:</b>
+  <%= @process_element.type %>
+</p>
+
+<p>
+  <b>Process unit:</b>
+  <%= @process_element.process_unit_id %>
+</p>
+
+
+<%= link_to 'Edit', edit_process_element_path(@process_element) %> |
+<%= link_to 'Back', process_elements_path %>
