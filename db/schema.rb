@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110320030847) do
+ActiveRecord::Schema.define(:version => 20110320065006) do
 
   create_table "process_elements", :force => true do |t|
     t.string   "name"
@@ -19,6 +19,8 @@ ActiveRecord::Schema.define(:version => 20110320030847) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "role"
+    t.string   "function_name"
+    t.string   "function_parameters"
   end
 
   add_index "process_elements", ["process_unit_id"], :name => "index_process_elements_on_process_unit_id"

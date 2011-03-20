@@ -1,19 +1,21 @@
 # == Schema Information
-# Schema version: 20110320022845
+# Schema version: 20110320065006
 #
 # Table name: process_elements
 #
-#  id              :integer         not null, primary key
-#  name            :string(255)
-#  description     :text
-#  type            :string(255)
-#  process_unit_id :integer
-#  created_at      :datetime
-#  updated_at      :datetime
+#  id                  :integer         not null, primary key
+#  name                :string(255)
+#  description         :text
+#  process_unit_id     :integer
+#  created_at          :datetime
+#  updated_at          :datetime
+#  role                :string(255)
+#  function_name       :string(255)
+#  function_parameters :string(255)
 #
 
 class ProcessElement < ActiveRecord::Base
-  attr_accessible :name, :description, :role
+  attr_accessible :name, :description, :role, :function_name, :function_parameters
   
   belongs_to :process_unit
   

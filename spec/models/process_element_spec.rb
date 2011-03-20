@@ -8,7 +8,9 @@ describe ProcessElement do
     @attr = {
       :name => "Process element name",
       :description => "Process element description",
-      :role => "A role"
+      :role => "a_role",
+      :function_name => "a_function_name",
+      :function_parameters => "param1,param2"
     }
   end
   
