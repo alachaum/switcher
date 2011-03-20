@@ -40,4 +40,27 @@ describe ProcessUnit do
       @process_unit.process_flow.should == @process_flow
     end
   end
+  
+  describe "process element association" do
+    before(:each) do
+      @process_unit = @process_flow.process_units.create(@attr)
+      @p_element_1 = Factory(:process_element, :process_unit => @process_unit)
+      @p_element_2 = Factory(:process_element, :process_unit => @process_unit)
+    end
+    
+    it "should have a process_elements attribute" do
+      @process_unit.should respond_to(:process_elements)
+    end
+    
+    it "should have the right elements" do
+      @process_unit.process_elements.should == [@p_element_1, @p_element_2]
+    end
+    
+    it "should destroy the elements when the unit is destroyed" do
+      @process_unit.destroy
+      [@p_element_1, @p_element_2].each do |p_element|
+        ProcessElement.find_by_id(p_element.id).should be_nil
+      end
+    end
+  end
 end

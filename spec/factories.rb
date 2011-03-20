@@ -9,3 +9,10 @@ Factory.define :process_unit do |process_unit|
   process_unit.description "This is the description of the process unit"
   process_unit.association :process_flow
 end
+
+Factory.define :process_element do |process_element|
+  process_element.name "Example process element"
+  process_element.description "This is the description of the process element"
+  process_element.role "ElementRole"
+  process_element.association :process_unit
+end

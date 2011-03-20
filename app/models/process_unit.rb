@@ -15,6 +15,7 @@ class ProcessUnit < ActiveRecord::Base
   attr_accessible :name, :description
 
   belongs_to :process_flow
+  has_many :process_elements, :dependent => :destroy
 
   validates :name, :presence => true
   validates :process_flow_id, :presence => true
