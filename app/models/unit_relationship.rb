@@ -25,7 +25,7 @@ class UnitRelationship < ActiveRecord::Base
   private
     def no_self_relationship
       if parent_unit_id == child_unit_id
-        errors.add(:child_unit_id, ": a unit cannot be linked to itself")
+        errors.add(:base, "A unit cannot be linked to itself")
       end
     end
     
@@ -33,7 +33,7 @@ class UnitRelationship < ActiveRecord::Base
       reverse_relation = UnitRelationship.where(:parent_unit_id => child_unit_id, 
                                                 :child_unit_id => parent_unit_id).first
       if reverse_relation
-        errors.add(:child_unit_id, ": loops are not allowed")
+        errors.add(:base, "Loop relationships are not allowed")
       end
     end
 end
