@@ -8,7 +8,7 @@
   <%= @process_flow.description %>
 </p>
 
-<%= render 'process_units/list', :p_units => @process_flow.process_units %>
+<%= render 'process_units/unit_tree', :unit_tree => @process_flow.unit_tree %>
 
 <%= link_to 'Edit', edit_process_flow_path(@process_flow) %> |
 <%= link_to 'Back', process_flows_path %>

@@ -1,0 +1,18 @@
+.unit_object {
+	background-color: rgb(135,206,250);
+	-moz-border-radius:    10px;
+  	-webkit-border-radius: 10px;
+  	border-radius:         10px;
+	text-align: center;
+}
+
+.tree_grid {
+	
+}
+
+/* Round corners */
+.round {
+  -moz-border-radius:    10px;
+  -webkit-border-radius: 10px;
+  border-radius:         10px;
+}

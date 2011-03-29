@@ -41,7 +41,16 @@ describe ProcessFlow do
         ProcessUnit.find_by_id(p_unit.id).should be_nil
       end
     end
+    
+    it "should have a unit_tree method" do
+      @process_flow.should respond_to(:unit_tree)
+    end
+    
+    it "shoud have its units in the unit_tree" do
+      unit_tree = @process_flow.unit_tree
+      [@p_unit_1, @p_unit_2].each do |unit|
+        unit_tree[0].should include(unit)
+      end
+    end
   end
-  
-  
 end

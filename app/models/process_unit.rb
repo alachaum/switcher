@@ -12,7 +12,7 @@
 #
 
 class ProcessUnit < ActiveRecord::Base
-  attr_accessible :name, :description
+  attr_accessible :name, :description, :process_flow_id #TODO remove this last one
 
   belongs_to :process_flow
   has_many :process_elements, :dependent => :destroy
@@ -31,7 +31,7 @@ class ProcessUnit < ActiveRecord::Base
   validates :name, :presence => true
   validates :process_flow_id, :presence => true
   
-  #parent-child methods
+  #PARENT-CHILD METHODS
   def parent_of(child_unit)
     self.unit_relationships.create(:child_unit_id => child_unit.id)
   end
@@ -50,5 +50,43 @@ class ProcessUnit < ActiveRecord::Base
   
   def linked_to?(other_unit)
     self.parent_of(other_unit) || self.child_of(other_unit)
+  end
+  
+  #UNIT TREE CONSTRUCTION
+  #Find the children of a list of Process Flows/Units
+  def self.find_children_of(*list)
+    result = []
+    p_flow_ids = []
+    p_unit_ids = []
+    list.each do |object|
+      if object.class == ProcessFlow
+        p_flow_ids << object.id
+      elsif object.class == ProcessUnit
+        p_unit_ids << object.id
+      end
+    end
+    unless p_flow_ids.empty?
+      result +=  ProcessUnit.where("process_flow_id IN(#{p_flow_ids.join(",")}) AND id NOT IN(SELECT child_unit_id FROM unit_relationships)")
+    end
+    unless p_unit_ids.empty?
+      result += ProcessUnit.where("id IN(SELECT child_unit_id FROM unit_relationships WHERE parent_unit_id IN(#{p_unit_ids.join(",")}))")
+    end
+    return result
+  end
+  
+  #build the unit tree
+  def self.build_unit_tree(process_flow)
+    unit_tree = []
+    children = process_flow
+    while !(children = ProcessUnit.find_children_of(*children)).empty?
+      unit_tree << children
+      #Remove any instance of children elements in lower levels
+      (unit_tree.size-1).times do |n|
+        children.each do |unit|
+          unit_tree[n].delete(unit)
+        end
+      end
+    end
+    return unit_tree
   end
 end

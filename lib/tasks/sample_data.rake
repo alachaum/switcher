@@ -28,12 +28,17 @@ def make_process_units
   message = "Add sample process units"
   monitor(message) do
     ProcessFlow.all.each do |p_flow|
+      unit_list = []
       5.times do |n|
         name = "Unit #{n+1}"
         description = "This unit belongs to #{p_flow.name}"
-        p_flow.process_units.create!(:name => name,
-                                     :description => description)
-      end 
+        unit_list << p_flow.process_units.create!(:name => name,
+                                                  :description => description)
+      end
+       unit_list[0].parent_of(unit_list[1])
+       unit_list[0].parent_of(unit_list[2])
+       unit_list[1].parent_of(unit_list[3])
+       unit_list[2].parent_of(unit_list[4])
     end
   end
 end

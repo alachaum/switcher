@@ -1,0 +1,12 @@
+<div class="tree_grid span-24">
+<% unit_tree.each do |unit_list| %>
+	<hr>
+	<% unit_list.each do |unit| %>
+		<div class="unit_object span-2 append-bottom">
+			<p><%= unit.name %></p>
+			<br><br>
+		</div>
+	<% end%>
+<% end %>
+</div>
+<hr>

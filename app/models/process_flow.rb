@@ -17,4 +17,8 @@ class ProcessFlow < ActiveRecord::Base
   
   validates :name, :presence => true
   
+  #Return the unit tree
+  def unit_tree
+    ProcessUnit.build_unit_tree(self)
+  end
 end

@@ -16,7 +16,7 @@ group :test do
   gem 'rspec', '2.4.0'
   gem 'webrat', '0.7.1'
   gem 'factory_girl_rails', '1.0'
-  gem 'email_spec'
+  gem 'email_spec', '1.1.1'
 end
 
 # Bundle edge Rails instead:
